@@ -26,10 +26,15 @@ jobs:
     - name: Grant execute permission for gradlew
       run: chmod +x android/gradlew
       
-    - name: Build with Gradle
+    - name: Clean and rebuild
       run: |
-             cd android
-             ./gradlew assembleDebug -Dorg.gradle.jvmargs=-Xmx2048m -Dorg.gradle.java.home=$JAVA_HOME_17_X64
+        cd android
+        # Явно задаём JAVA_HOME
+        export JAVA_HOME=$JAVA_HOME_17_X64
+        # Очищаем кэш
+        ./gradlew clean --no-daemon
+        # Собираем с принудительной Java 17
+        ./gradlew assembleDebug --no-daemon -Dorg.gradle.jvmargs=-Xmx2048m -Dorg.gradle.java.home=$JAVA_HOME_17_X64 --stacktrace
         
     - name: Upload APK
       uses: actions/upload-artifact@v4
