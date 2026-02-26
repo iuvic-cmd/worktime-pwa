@@ -29,7 +29,7 @@ jobs:
     - name: Build with Gradle
       run: |
         cd android
-        ./gradlew assembleDebug
+        ./gradlew assembleDebug -Dorg.gradle.jvmargs=-Xmx2048m
         
     - name: Upload APK
       uses: actions/upload-artifact@v4
