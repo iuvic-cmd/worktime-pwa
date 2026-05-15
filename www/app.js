@@ -7,7 +7,7 @@
 const PRICE_CUTOFF = "2026-05-05"; // дата смены тарифа
 const OLD_NIGHT_PRICE = 65;        // бывший тариф «Ночные»
 const OLD_AP_PRICE = 50;           // бывший тариф «АП-34»
-const NEW_NIGHT_PRICE = 73;        // «Ночной тариф»
+const NEW_NIGHT_PRICE = 74;        // «Ночной тариф»
 const NEW_AP_PRICE = 54;           // «Единый тариф Кишинев»
 
 function getCustomPrices() {
